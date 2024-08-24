@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Livro</title>
+
+    <link rel="stylesheet" href="../../static/css/3rd/bootstrap.min.css" media="screen" th:href="@{/css/3rd/bootstrap.min.css}">
+
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg bg-light mb-3" data-bs-theme="light">
+    <div class="container">
+        <a class="navbar-brand" href="#">E-commerce</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarColor03">
+            <form th:action="@{/versiculo}" method="POST" class="form-group d-flex">
+                <input type="text" placeholder="Search" id="query" th:value="${query}" name="query" minlength="4" class="form-control" required>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<script src="../../static/js/3rd/bootstrap.min.js" th:src="@{/js/3rd/bootstrap.min.js}"></script>
+</body>
+</html>

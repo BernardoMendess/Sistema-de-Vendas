@@ -22,20 +22,26 @@ public class ProdutoController {
     private ProdutoComDependenciasService produtoComDependenciasService;
 
     @GetMapping("/new")
-    public ModelAndView newProduto(){
+    public ModelAndView novo(){
         return new ModelAndView("produto/edit")
-                .addObject("produto", Produto.empty());
+                .addObject( "produto", Produto.empty());
     }
 
     @GetMapping("/{id}/edit")
-    public ModelAndView editProduto(@PathVariable long id){
+    public ModelAndView edit(@PathVariable long id){
         return new ModelAndView("produto/edit")
                 .addObject("produto", produtoComDependenciasService.findComDependenciasObjById(id));
     }
 
+    @GetMapping("/{id}")
+    public ModelAndView get(@PathVariable long id){
+        return new ModelAndView("produto/get")
+                .addObject("produto", produtoComDependenciasService.findComDependenciasObjById(id));
+    }
+
     @PostMapping
-    public String saveProduto(Produto produto){
+    public String save(Produto produto){
         produtoService.save(produto);
-        return "redirect:/produto/%d/edit".formatted(produto.getId());
+        return "redirect:/produto/%d".formatted(produto.getId());
     }
 }
