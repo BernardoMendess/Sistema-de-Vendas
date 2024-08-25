@@ -16,12 +16,14 @@ public class Produto {
     @Id
     private Long id;
     private String nome;
+    private String marca;
     private int quantidade;
     private float preco;
     private String descricao;
     private Long categoriaId;
+    private String nomeImagem;
 
     public static Produto empty(){
-        return new Produto(null, "", 0, 0, "", null);
+        return new Produto(null, "", "", 0, 0, "", null, "");
     }
 }

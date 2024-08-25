@@ -17,10 +17,12 @@ public class ProdutoComDependenciasService {
         return new ProdutoComDependencias(
                 produto.getId(),
                 produto.getNome(),
+                produto.getMarca(),
                 produto.getQuantidade(),
                 produto.getPreco(),
                 produto.getDescricao(),
-                categoriaService.findById(produto.getCategoriaId())
+                categoriaService.findById(produto.getCategoriaId()),
+                produto.getNomeImagem()
         );
     }
 }

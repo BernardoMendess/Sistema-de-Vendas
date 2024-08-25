@@ -14,8 +14,8 @@ public class ProdutoService {
 
     private ProdutoDAO produtoDAO;
 
-    public void save(Produto produto){
-        produtoDAO.save(produto);
+    public Produto save(Produto produto){
+        return produtoDAO.save(produto);
     }
 
     public Produto findById(long id){

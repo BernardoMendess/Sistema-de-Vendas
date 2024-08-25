@@ -20,21 +20,33 @@
                 </div>
                 <div class="form-group mt-3">
                     <label for="categoriaProduto">Categoria</label>
-                    <input th:value="${produto.categoriaId}" name="categoriaId" type="text" class="form-control" id="categoriaProduto" placeholder="Digite a categoria">
+                    <select class="form-select"  id="categoriaProduto" name="categoriaId" aria-label="Selecione a categoria" required>
+                        <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nome}" th:selected="${produto.categoria?.id == categoria.id}">One</option>
+                        <option th:if="${false}" value="2">Two</option>
+                        <option th:if="${false}" value="3">Three</option>
+                    </select>
                 </div>
                 <div class="form-group mt-3">
                     <label for="precoProduto">Preço</label>
                     <input  th:value="${produto.preco}" name="preco" type="number" step="0.01" class="form-control" id="precoProduto" placeholder="Digite o preço" required>
                 </div>
+                <div class="form-group mt-3">
+                    <label for="marcaProduto">Marca</label>
+                    <input  type="text" th:value="${produto.marca}" class="form-control" id="marcaProduto" name="marca" placeholder="Digite a marca do produto" required>
+                </div>
             </div>
             <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label for="quantidade">Quantidade</label>
+                    <input  type="number" step="1" min="1" th:value="${produto.quantidade}" class="form-control" id="quantidade" name="quantidade" placeholder="Digite a quantidade existente do produto" required>
+                </div>
                 <div class="form-group">
                     <label for="descricaoProduto">Descrição</label>
-                    <textarea th:value="${produto.descricao}" name="descricao" class="form-control" id="descricaoProduto" rows="5" placeholder="Digite a descrição do produto" required></textarea>
+                    <textarea th:value="${produto.descricao}" name="descricao" class="form-control" id="descricaoProduto" rows="6" placeholder="Digite a descrição do produto" required></textarea>
                 </div>
                 <div class="form-group mt-3">
                     <label for="imagemProduto">Imagem do Produto</label>
-                    <input type="file" class="form-control-file" id="imagemProduto" name="image" accept="image/*">
+                    <input type="file" class="form-control-file" id="imagemProduto" name="file" accept="image/*">
                 </div>
             </div>
         </div>
