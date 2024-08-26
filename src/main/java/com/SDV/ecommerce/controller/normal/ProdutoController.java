@@ -58,6 +58,12 @@ public class ProdutoController {
                 .addObject("produto", produtoComDependenciasService.findComDependenciasObjById(id));
     }
 
+    @GetMapping()
+    public ModelAndView list(){
+        return new ModelAndView("produto/list")
+                .addObject("produtos", produtoService.findAll());
+    }
+
     @PostMapping
     public String save(Produto produto, @RequestParam("file")MultipartFile arquivo){
         val produtoSalvo = produtoService.save(produto);
